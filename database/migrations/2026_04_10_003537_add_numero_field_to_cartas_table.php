@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cartas', function (Blueprint $table) {
-            $table->id();
-            $table-> string('nome');
-            $table->string('tipo');
-            $table->string('foto')->nullable();
-            $table->timestamps();
+        Schema::table('cartas', function (Blueprint $table) {
+            $table->string('numero');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cartas');
+        Schema::table('cartas', function (Blueprint $table) {
+            //
+        });
     }
 };

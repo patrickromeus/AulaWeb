@@ -28,7 +28,7 @@ Route::get('/bemvindo', [
 
 Route::prefix('/cartas')->group(function () {
 
-    Route::get('/', [CartasController::class, 'index']);
+    Route::get('/', [CartasController::class, 'index'])->name('cartas.index');
 
 
     Route::get(
