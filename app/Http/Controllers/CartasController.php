@@ -20,10 +20,10 @@ class CartasController extends Controller
     {
         if ($request->isMethod('post')) {
             $dados = $request->only('nome', 'tipo', 'numero');
-           
-           $foto = $request->file('foto')->store ('cartas', 'public');
-           
-            if ($foto){
+
+            $foto = $request->file('foto')->store('cartas', 'public');
+
+            if ($foto) {
                 $dados['foto'] = $foto;
             }
 
@@ -34,4 +34,23 @@ class CartasController extends Controller
         return view('cartas.inserir');
 
     }
+    public function editar(Request $request, Carta $carta) { 
+
+     }
+
+    public function excluir(request $request, Carta $carta) {
+        //excluir a carta do bancode dados
+        if ($request->isMethod('DELETE')){
+            // Excluir a foto da carta, se existe
+            if($carta->foto){
+                \Storage::disk('public')->delete ($carta->foto); 
+             }
+             $carta->delete();
+                return redirect()-> route('cartas.index');
+        }
+        return view('cartas.excluir', ['carta' => $carta,]);
+
+    }
+
+
 }

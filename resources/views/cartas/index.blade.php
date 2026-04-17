@@ -10,22 +10,31 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Tipo</th>
-             <th>foto</th>
-             <th>Numero</th>
+            <th>foto</th>
+            <th>Numero</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+
 
         </tr>
-        @foreach ($cartas as $carta )
-        <tr>
-            <td>{{ $carta['id'] }}</td>
-            <td>{{ $carta['nome'] }}</td>
-            <td><img src="{{asset('storage/energias/'.$carta['tipo'].'.png') }}"width="22"></td>
-            <td><img src="{{ asset('storage/'.$carta['foto']) }}"width="40"></td>
-            <td>{{ $carta['numero'] }}</td>
-            
-        </tr>
-        
+        @foreach ($cartas as $carta)
+            <tr>
+                <td>{{ $carta['id'] }}</td>
+                <td>{{ $carta['nome'] }}</td>
+                <td><img src="{{asset('storage/energias/' . $carta['tipo'] . '.png') }}" width="22"></td>
+                <td><img src="{{ asset('storage/' . $carta['foto']) }}" width="40"></td>
+                <td>{{ $carta['numero'] }}</td>
+                <td>
+                    <a href="{{ route('cartas.editar', $carta['id'])}}"> 🖌️</a>
+                </td>
+                <td>
+                <a href="{{ route('cartas.excluir', $carta['id'])}}"> 🗑️</a>
+                </td>
+
+            </tr>
+
         @endforeach
-        
+
     </table>
 
-</div>                                                                                                                                                                                                                                                                                              
+</div>

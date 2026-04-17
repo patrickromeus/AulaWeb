@@ -41,5 +41,12 @@ Route::prefix('/cartas')->group(function () {
         [CartasController::class, 'inserir']
     )->name('cartas.gravar');
 
+    // novo campo para editar carta 
+ Route::get ('/editar/{carta}', [CartasController::class, 'editar'])->name('cartas.editar');
+ Route::put ('/editar/{carta}', [CartasController::class, 'editar'])->name('cartas.editar');
+
+  // para excluir routa
+ Route::get ('/excluir/{carta}', [CartasController::class, 'excluir'])->name('cartas.excluir');
+ Route::delete ('/excluir/{carta}', [CartasController::class, 'excluir'])->name('cartas.deletar');
 
 });
