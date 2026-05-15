@@ -32,15 +32,8 @@ Route::prefix('/cartas')->group(function () {
     Route::get('/', [CartasController::class, 'index'])->name('cartas.index');
 
 
-    Route::get(
-        '/inserir',
-        [CartasController::class, 'inserir']
-    )->name('cartas.inserir');
-
-     Route::post(
-        '/inserir',
-        [CartasController::class, 'inserir']
-    )->name('cartas.gravar');
+    Route::get('/inserir', [CartasController::class, 'inserir'])->name('cartas.inserir');
+     Route::post('/inserir',[CartasController::class, 'inserir'])->name('cartas.gravar');
 
     // novo campo para editar carta 
  Route::get ('/editar/{carta}', [CartasController::class, 'editar'])->name('cartas.editar');

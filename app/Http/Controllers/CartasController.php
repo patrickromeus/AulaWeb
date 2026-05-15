@@ -63,7 +63,7 @@ class CartasController extends Controller
 
     public function excluir(request $request, Carta $carta)
     {
-        //excluir a carta do bancode dados
+        //excluir a carta do banco de dados
         if ($request->isMethod('DELETE')) {
             // Excluir a foto da carta, se existe
             if ($carta->foto) {
